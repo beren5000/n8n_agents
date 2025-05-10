@@ -1,29 +1,23 @@
 """
 WSGI config for core project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 """
-
 import os
 import sys
 
-# Handle zoneinfo compatibility before Django imports
-if sys.version_info >= (3, 9):
-    try:
-        import zoneinfo
-    except ImportError:
-        pass
-else:
-    try:
-        import backports.zoneinfo
-    except ImportError:
-        pass
+# Add project path to Python path
+sys.path.insert(0, '/var/www/n8n_agents')
+sys.path.insert(0, '/var/www/n8n_agents/n8n_agents')
 
-from django.core.wsgi import get_wsgi_application
+# Apply timezone patch before importing Django
+try:
+    from core.timezone_patch.py import TimezonePatch
+    sys.modules['django.utils.timezone'] = TimezonePatch('django.utils.timezone')
+except ImportError:
+    pass
 
+# Set Django settings module
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 
+# Import Django WSGI application
+from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
