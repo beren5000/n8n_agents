@@ -48,6 +48,8 @@ INSTALLED_APPS = [
 
     # Custom apps
     "apps.accounts",
+    "apps.equipments",
+    "apps.conversationhistories",
 ]
 
 MIDDLEWARE = [

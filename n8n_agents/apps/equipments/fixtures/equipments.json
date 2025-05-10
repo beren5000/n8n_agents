@@ -1,0 +1,242 @@
+[
+  {
+    "model": "equipments.equipment",
+    "pk": 1,
+    "fields": {
+      "name": "Forklift XL2000",
+      "type": "Heavy Machinery",
+      "created_by": 1,
+      "quantity": 5,
+      "location": "Zone A",
+      "last_updated": "2025-05-08T10:30:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 2,
+    "fields": {
+      "name": "Pallet Jack Standard",
+      "type": "Manual Equipment",
+      "created_by": 2,
+      "quantity": 15,
+      "location": "Zone B",
+      "last_updated": "2025-05-07T14:15:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 3,
+    "fields": {
+      "name": "Storage Shelves 8ft",
+      "type": "Storage",
+      "created_by": 3,
+      "quantity": 30,
+      "location": "Zone C",
+      "last_updated": "2025-05-06T09:45:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 4,
+    "fields": {
+      "name": "Industrial Vacuum",
+      "type": "Cleaning Equipment",
+      "created_by": 1,
+      "quantity": 8,
+      "location": "Zone D",
+      "last_updated": "2025-05-08T16:20:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 5,
+    "fields": {
+      "name": "Safety Helmets",
+      "type": "Safety Gear",
+      "created_by": 2,
+      "quantity": 50,
+      "location": "Main Office",
+      "last_updated": "2025-05-09T11:10:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 6,
+    "fields": {
+      "name": "Conveyor Belt 20m",
+      "type": "Transport Equipment",
+      "created_by": 3,
+      "quantity": 4,
+      "location": "Loading Bay",
+      "last_updated": "2025-05-05T13:30:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 7,
+    "fields": {
+      "name": "Pallet Wrapper",
+      "type": "Packaging Equipment",
+      "created_by": 1,
+      "quantity": 6,
+      "location": "Packaging Area",
+      "last_updated": "2025-05-07T10:25:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 8,
+    "fields": {
+      "name": "Digital Scale 500kg",
+      "type": "Measurement Equipment",
+      "created_by": 2,
+      "quantity": 12,
+      "location": "Receiving Area",
+      "last_updated": "2025-05-08T15:40:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 9,
+    "fields": {
+      "name": "Barcode Scanner",
+      "type": "Electronic Equipment",
+      "created_by": 3,
+      "quantity": 25,
+      "location": "All Zones",
+      "last_updated": "2025-05-09T09:15:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 10,
+    "fields": {
+      "name": "Ladder 12ft",
+      "type": "Access Equipment",
+      "created_by": 1,
+      "quantity": 10,
+      "location": "Maintenance",
+      "last_updated": "2025-05-06T14:50:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 11,
+    "fields": {
+      "name": "Work Gloves",
+      "type": "Safety Gear",
+      "created_by": 2,
+      "quantity": 100,
+      "location": "Supply Room",
+      "last_updated": "2025-05-07T08:30:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 12,
+    "fields": {
+      "name": "Box Cutter",
+      "type": "Hand Tool",
+      "created_by": 3,
+      "quantity": 40,
+      "location": "Unpacking Area",
+      "last_updated": "2025-05-08T13:20:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 13,
+    "fields": {
+      "name": "Electric Stacker",
+      "type": "Heavy Machinery",
+      "created_by": 1,
+      "quantity": 3,
+      "location": "Zone A",
+      "last_updated": "2025-05-09T10:45:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 14,
+    "fields": {
+      "name": "RFID Reader",
+      "type": "Electronic Equipment",
+      "created_by": 2,
+      "quantity": 15,
+      "location": "Entrance Gates",
+      "last_updated": "2025-05-05T09:10:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 15,
+    "fields": {
+      "name": "Plastic Storage Bins",
+      "type": "Storage",
+      "created_by": 3,
+      "quantity": 200,
+      "location": "Zone B",
+      "last_updated": "2025-05-06T11:25:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 16,
+    "fields": {
+      "name": "Warehouse Tablet",
+      "type": "Electronic Equipment",
+      "created_by": 1,
+      "quantity": 12,
+      "location": "Main Office",
+      "last_updated": "2025-05-07T16:30:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 17,
+    "fields": {
+      "name": "Safety Vests",
+      "type": "Safety Gear",
+      "created_by": 2,
+      "quantity": 60,
+      "location": "Entrance",
+      "last_updated": "2025-05-08T08:45:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 18,
+    "fields": {
+      "name": "Hand Trucks",
+      "type": "Manual Equipment",
+      "created_by": 3,
+      "quantity": 20,
+      "location": "Zone D",
+      "last_updated": "2025-05-09T13:10:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 19,
+    "fields": {
+      "name": "Packaging Tape Dispenser",
+      "type": "Packaging Equipment",
+      "created_by": 1,
+      "quantity": 35,
+      "location": "Packaging Area",
+      "last_updated": "2025-05-05T15:20:00Z"
+    }
+  },
+  {
+    "model": "equipments.equipment",
+    "pk": 20,
+    "fields": {
+      "name": "Steel Wire Shelving",
+      "type": "Storage",
+      "created_by": 2,
+      "quantity": 25,
+      "location": "Zone C",
+      "last_updated": "2025-05-06T10:30:00Z"
+    }
+  }
+]

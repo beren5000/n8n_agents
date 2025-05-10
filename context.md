@@ -56,7 +56,6 @@ ConversationHistory
 - timestamp
 - query
 - response
-- related_equipment_id (FK, optional)
 ```
 
 ## Implementation Plan
@@ -64,8 +63,8 @@ ConversationHistory
 2. [x] Configure PostgreSQL database connection
 3. [x] Set up environment variables management
 4. [x] Create custom management commands
-5. [ ] Implement warehouse equipment models
-6. [ ] Implement conversation history models
+5. [x] Implement warehouse equipment models
+6. [x] Implement conversation history models
 7. [ ] Implement Django REST API endpoints
 8. [ ] Create Python tools for direct database access
 9. [ ] Build n8n workflows for processing user queries
@@ -92,7 +91,7 @@ ConversationHistory
 - [x] Initial setup complete
 - [x] Custom User model implemented
 - [x] Database connection configured
-- [ ] Implementation of data models pending
+- [x] Implementation of data models complete
 - [ ] REST API implementation pending
 - [ ] n8n workflow implementation pending
 
@@ -104,3 +103,8 @@ ConversationHistory
 - n8n self-hosted instance
 - Python for custom tools and testing framework
 - GitHub Actions potential for deployment automation
+
+## Endpoints
+- we need to create two endpoints on equipment
+   1. list equipment: list all equipmnet and filter by name, user__name, type, location; can order by last_updated
+   2. create equipment: post with all the fields and a email to assign to an user 
