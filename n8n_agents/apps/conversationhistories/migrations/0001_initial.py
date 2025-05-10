@@ -2,8 +2,8 @@
 
 import django.db.models.deletion
 import django.utils.timezone
-from django.conf import settings
 from django.db import migrations, models
+from apps.accounts.models import User
 
 
 class Migration(migrations.Migration):
@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        migrations.swappable_dependency(User),
     ]
 
     operations = [
@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="conversations",
-                        to=settings.AUTH_USER_MODEL,
+                        to=User,
                         verbose_name="user",
                     ),
                 ),
