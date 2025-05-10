@@ -23,7 +23,7 @@ The system allows generative AI agents to interact with a Django backend storing
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/n8n_agents.git
+git clone https://github.com/beren5000/n8n_agents.git
 cd n8n_agents
 ```
 
