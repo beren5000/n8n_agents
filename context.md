@@ -14,9 +14,9 @@ This prototype demonstrates using n8n as an orchestration layer for generative A
 └──────────┘    └─────────────┘    └───────────────┘
                        │                    │
                        ▼                    ▼
-                ┌─────────────┐     ┌─────────────────┐
-                │Generative AI│     │Database (SQLite)│
-                └─────────────┘     └─────────────────┘
+                ┌─────────────┐     ┌──────────────────────┐
+                │Generative AI│     │Database (PostgreSQL )│
+                └─────────────┘     └──────────────────────┘
 ```
 
 ## Requirements
@@ -60,15 +60,17 @@ ConversationHistory
 ```
 
 ## Implementation Plan
-1. Set up Django project with models and admin interface
-2. Implement Django REST API endpoints
-3. Create Python tools for direct database access
-4. Build n8n workflows for:
-   - Processing user queries
-   - Retrieving information from database
-   - Generating responses with AI
-5. Develop stress testing framework
-6. Conduct tests and optimize performance
+1. [x] Set up Django project with custom User model
+2. [x] Configure PostgreSQL database connection
+3. [x] Set up environment variables management
+4. [x] Create custom management commands
+5. [ ] Implement warehouse equipment models
+6. [ ] Implement conversation history models
+7. [ ] Implement Django REST API endpoints
+8. [ ] Create Python tools for direct database access
+9. [ ] Build n8n workflows for processing user queries
+10. [ ] Develop stress testing framework
+11. [ ] Conduct tests and optimize performance
 
 ## n8n Workflow Design
 - **Input Node**: Receives user queries
@@ -87,11 +89,18 @@ ConversationHistory
   - System stability
 
 ## Project Status
-- Initial planning and design phase
-- Implementation pending
+- [x] Initial setup complete
+- [x] Custom User model implemented
+- [x] Database connection configured
+- [ ] Implementation of data models pending
+- [ ] REST API implementation pending
+- [ ] n8n workflow implementation pending
 
 ## Technical Notes
 - Django REST Framework for API development
-- SQLite for development, can be migrated to PostgreSQL for production
+- PostgreSQL for database
+- Custom User model with email authentication
+- Environment variables for configuration
 - n8n self-hosted instance
 - Python for custom tools and testing framework
+- GitHub Actions potential for deployment automation
