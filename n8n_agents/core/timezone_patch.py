@@ -50,13 +50,21 @@ class TimezonePatch:
             return value
         return value.replace(tzinfo=None)
     
-    # Add the missing function
+    # Missing functions
     def _datetime_ambiguous_or_imaginary(self, dt, tz):
         """
         Returns True if the given datetime is ambiguous or imaginary.
         Simplified version that always returns False to avoid complexity.
         """
         return False
+    
+    def template_localtime(self, value):
+        """
+        Checks if value is a datetime and converts it to local time if necessary.
+        """
+        if isinstance(value, datetime):
+            return self.localtime(value)
+        return value
 
 # Install the patch
 sys.modules['django.utils.timezone'] = TimezonePatch('django.utils.timezone')
