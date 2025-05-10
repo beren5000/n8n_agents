@@ -50,6 +50,18 @@ class TimezonePatch:
             return value
         return value.replace(tzinfo=None)
     
+    # Add the get_fixed_timezone function
+    def get_fixed_timezone(self, offset):
+        """
+        Returns a tzinfo instance with a fixed offset from UTC.
+        """
+        if isinstance(offset, timedelta):
+            offset = offset.total_seconds() // 60
+        sign = '-' if offset < 0 else '+'
+        hhmm = '%02d%02d' % divmod(abs(offset), 60)
+        name = f"{sign}{hhmm}"
+        return timezone(timedelta(minutes=offset), name)
+    
     # Missing functions
     def _datetime_ambiguous_or_imaginary(self, dt, tz):
         """
