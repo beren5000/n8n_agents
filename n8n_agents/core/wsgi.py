@@ -10,7 +10,7 @@ sys.path.insert(0, '/var/www/n8n_agents/n8n_agents')
 
 # Apply timezone patch before importing Django
 try:
-    from core.timezone_patch.py import TimezonePatch
+    from core.timezone_patch import TimezonePatch
     sys.modules['django.utils.timezone'] = TimezonePatch('django.utils.timezone')
 except ImportError:
     pass
