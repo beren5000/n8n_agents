@@ -3,18 +3,15 @@
 {
 	"name": "Python 3",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.8",
 	"features": {
-		"ghcr.io/devcontainers-extra/features/poetry:2": {
-			"version": "latest"
-		},
 		"ghcr.io/itsmechlark/features/postgresql:1": {
+			"version": "12"
+		},
+		"ghcr.io/devcontainers-extra/features/poetry:2": {
 			"version": "latest"
 		}
 	},
-	
-	// Start PostgreSQL automatically when the container starts
-    "postStartCommand": "sudo service postgresql start",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -24,6 +21,9 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+
+	// Use 'postStartCommand' to run commands after the container is created and started.
+    //"postStartCommand": "sudo bash -c 'service postgresql stop || true && pg_dropcluster --stop 12 main || true && sudo rm -rf /etc/postgresql/12 /var/lib/postgresql/12 && pg_createcluster 12 main && sudo chown -R postgres:postgres /var/lib/postgresql && service postgresql start && su postgres -c \"createuser -s vscode\" || true'"
 
 	// Configure tool-specific properties.
 	// "customizations": {},

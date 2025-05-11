@@ -1,22 +1,20 @@
-[project]
+[tool.poetry]
 name = "n8n-agents"
 version = "0.1.0"
-description = "n8n prototype for connecting with external tools in django"
-authors = [
-    {name = "Camilo Monsalve Gómez",email = "beren.monsalve@gmail.com"}
-]
-license = {text = "MIT"}
+description = "n8n prototype to connect ai agents to django"
+authors = ["Camilo Monsalve Gómez <beren.monsalve@gmail.com>"]
+license = "MIT"
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = [
-    "django (>=4.2.0,<4.3.0)",
-    "djangorestframework (>=3.16.0,<4.0.0)",
-    "psycopg (>=3.2.7,<4.0.0)",
-    "django-extensions (>=4.1,<5.0)",
-    "python-dotenv (>=1.1.0,<2.0.0)"
-]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = "4.2.21"
+python-dotenv = "1.0.1"
+djangorestframework = "3.15.2"
+django-extensions = "3.2.3"
+psycopg2 = "^2.9.10"
 
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
