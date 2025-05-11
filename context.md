@@ -106,5 +106,5 @@ ConversationHistory
 
 ## Endpoints
 - we need to create two endpoints on equipment
-   1. list equipment: list all equipmnet and filter by name, user__name, type, location; can order by last_updated
+   1. list equipment: list all equipmnet and filter by name, user__email, type, location; can order by last_updated
    2. create equipment: post with all the fields and a email to assign to an user 

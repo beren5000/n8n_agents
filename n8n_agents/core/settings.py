@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # Third-party apps
     "rest_framework",
+    'django_filters',
     "django_extensions",
 
     # Custom apps
@@ -52,6 +53,15 @@ INSTALLED_APPS = [
     "apps.equipments",
     "apps.conversationhistories",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
