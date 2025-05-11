@@ -49,9 +49,9 @@ INSTALLED_APPS = [
     "django_extensions",
 
     # Custom apps
-    "apps.accounts",
-    "apps.equipments",
-    "apps.conversationhistories",
+    "apps.accounts.apps.AccountsConfig",
+    "apps.equipments.apps.EquipmentsConfig",
+    "apps.conversationhistories.apps.ConversationhistoriesConfig",
 ]
 
 REST_FRAMEWORK = {
