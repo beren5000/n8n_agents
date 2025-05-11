@@ -11,6 +11,14 @@ class EquipmentSerializer(serializers.ModelSerializer):
         model = Equipment
         fields = ['id', 'name', 'type', 'quantity', 'location', 'created_by', 'last_updated', 'created_by_email']
         read_only_fields = ['created_by', 'last_updated']
+
+    def to_representation(self, instance):
+        """Override to_representation to show email instead of ID for created_by"""
+        ret = super().to_representation(instance)
+        # Replace user ID with user email
+        if instance.created_by:
+            ret['created_by'] = instance.created_by.email
+        return ret
     
     def create(self, validated_data):
         email = validated_data.pop('created_by_email', None)
