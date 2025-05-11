@@ -65,7 +65,7 @@ ConversationHistory
 4. [x] Create custom management commands
 5. [x] Implement warehouse equipment models
 6. [x] Implement conversation history models
-7. [ ] Implement Django REST API endpoints
+7. [x] Implement Django REST API endpoints
 8. [ ] Create Python tools for direct database access
 9. [ ] Build n8n workflows for processing user queries
 10. [ ] Develop stress testing framework
@@ -92,7 +92,7 @@ ConversationHistory
 - [x] Custom User model implemented
 - [x] Database connection configured
 - [x] Implementation of data models complete
-- [ ] REST API implementation pending
+- [x] REST API implementation completed
 - [ ] n8n workflow implementation pending
 
 ## Technical Notes
@@ -105,6 +105,20 @@ ConversationHistory
 - GitHub Actions potential for deployment automation
 
 ## Endpoints
-- we need to create two endpoints on equipment
-   1. list equipment: list all equipmnet and filter by name, user__email, type, location; can order by last_updated
-   2. create equipment: post with all the fields and a email to assign to an user 
+- Equipment API endpoints implemented:
+   1. **List equipment**: `GET /api/equipments/`
+      - Supports filtering with case-insensitive partial matching:
+        - `?name__icontains=value`
+        - `?type__icontains=value`
+        - `?location__icontains=value`
+        - `?created_by__email=value` (exact match)
+      - Ordering with `?ordering=field` or `?ordering=-field` (descending)
+      - Default ordering by `-last_updated`
+      - Full text search with `?search=term`
+      - Pagination with customizable page size
+   2. **Create equipment**: `POST /api/equipments/`
+      - Creates new equipment items
+      - Can assign to a user by providing `created_by_email` field
+      - No authentication required (using permissions.AllowAny)
+   3. **Retrieve/Update/Delete equipment**: `GET/PUT/DELETE /api/equipments/{id}/`
+      - Standard REST operations for individual equipment items 
