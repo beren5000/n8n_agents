@@ -29,3 +29,5 @@ class EquipmentViewSet(viewsets.ModelViewSet):
     search_fields = ['name', 'type', 'location']
     ordering_fields = ['name', 'type', 'quantity', 'location', 'last_updated']
     ordering = ['-last_updated']
+    page_size_query_param = 'page_size'
+    page_size = 10

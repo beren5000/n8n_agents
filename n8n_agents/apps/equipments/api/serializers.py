@@ -1,3 +1,4 @@
+from django.forms import ValidationError
 from rest_framework import serializers
 from apps.equipments.models import Equipment
 from apps.accounts.models import User
@@ -11,6 +12,7 @@ class EquipmentSerializer(serializers.ModelSerializer):
         model = Equipment
         fields = ['id', 'name', 'type', 'quantity', 'location', 'created_by', 'last_updated', 'created_by_email']
         read_only_fields = ['created_by', 'last_updated']
+        
 
     def to_representation(self, instance):
         """Override to_representation to show email instead of ID for created_by"""
@@ -24,13 +26,35 @@ class EquipmentSerializer(serializers.ModelSerializer):
         email = validated_data.pop('created_by_email', None)
         
         with transaction.atomic():
-            # If email is provided, find the user or create one
             if email:
-                user, _ = User.objects.get_or_create(email=email, 
-                                                   defaults={'is_active': True})
-                validated_data['created_by'] = user
+                try:
+                    # Single query to get user or raise exception
+                    user = User.objects.get(email=email)
+                    validated_data['created_by'] = user
+                except User.DoesNotExist:
+                    raise ValidationError({'created_by_email': f"User with email '{email}' does not exist."})
             else:
                 # Use request user if no email provided
                 validated_data['created_by'] = self.context['request'].user
                 
             return super().create(validated_data)
+    
+    def update(self, instance, validated_data):
+        """Handle updating equipment, including changing the created_by user if email provided"""
+        email = validated_data.pop('created_by_email', None)
+        
+        if email:
+            with transaction.atomic():
+                try:
+                    # Single query to get user or raise exception
+                    user = User.objects.get(email=email)
+                    validated_data['created_by'] = user
+                except User.DoesNotExist:
+                    raise ValidationError({'created_by_email': f"User with email '{email}' does not exist."})
+        
+        # Update other fields
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+            
+        instance.save()
+        return instance
