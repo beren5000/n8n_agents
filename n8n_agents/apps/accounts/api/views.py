@@ -1,11 +1,11 @@
 from rest_framework import viewsets, permissions
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter, SearchFilter
-from apps.equipments.models import Equipment
-from apps.equipments.api.serializers import EquipmentSerializer
+from apps.accounts.models import User
+from apps.accounts.api.serializers import UserSerializer
 
 
-class EquipmentViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint for managing warehouse equipment.
     
@@ -19,18 +19,15 @@ class EquipmentViewSet(viewsets.ModelViewSet):
     Update:
     Update a new equipment item. Can assign to a user if exists by providing an email address.
     """
-    queryset = Equipment.objects.all()
-    serializer_class = EquipmentSerializer
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = {
-        'name': ['icontains'],
-        'type': ['icontains'],
-        'location': ['icontains'],
-        'created_by__email': ['exact'],
+        'email': ['icontains'],
     }
-    search_fields = ['name', 'type', 'location']
-    ordering_fields = ['id', 'name', 'type', 'quantity', 'location', 'last_updated']
-    ordering = ['-last_updated']
+    search_fields = ['email', 'first_name', 'last_name']
+    ordering_fields = ['id', 'email', 'first_name', 'last_name']
+    ordering = ['-id']
     page_size_query_param = 'page_size'
     page_size = 10
